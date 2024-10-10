@@ -2,3 +2,4 @@ server/c_server/build/
 __pycache__/
 *.o
 ~
+venv/
