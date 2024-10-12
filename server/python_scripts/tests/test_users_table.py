@@ -1,3 +1,4 @@
+from db_handler import create_connection, close_connection
 import sys
 import os
 import mysql.connector
@@ -5,8 +6,6 @@ from mysql.connector import Error
 
 # Add the directory containing db_handler.py to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from db_handler import create_connection, close_connection
 
 
 def test_users_table_exists():
@@ -42,7 +41,8 @@ def test_users_table_structure():
 
         for i, column in enumerate(result):
             assert column[:6] == expected_structure[i], (
-                f"Test Failed: Column {column[0]} does not match expected structure."
+                f"Test Failed: Column {
+                    column[0]} does not match expected structure."
             )
             print("Test Passed: 'users' table structure is correct.")
     except Error as e:

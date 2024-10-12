@@ -1,13 +1,14 @@
+from db_handler import create_connection, close_connection
+from mysql.connector import Error
+import mysql.connector
 import sys
 import os
 
 # Add the directory containing db_handler.py to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import mysql.connector
-from mysql.connector import Error
 # Import the function to create a connection
-from db_handler import create_connection, close_connection
+
 
 def test_comments_table_exists():
     try:
@@ -26,6 +27,7 @@ def test_comments_table_exists():
     finally:
         close_connection(conn)
 
+
 def test_comments_table_structure():
     try:
         # Create a connection to the database
@@ -42,7 +44,8 @@ def test_comments_table_structure():
             ('blog_id', 'int', 'YES', 'MUL', None, ''),
             ('user_id', 'int', 'YES', 'MUL', None, ''),
             ('content', 'text', 'NO', '', None, ''),
-            ('created_at', 'timestamp', 'YES', '', 'CURRENT_TIMESTAMP', 'DEFAULT_GENERATED')
+            ('created_at', 'timestamp', 'YES', '',
+             'CURRENT_TIMESTAMP', 'DEFAULT_GENERATED')
         ]
         # Check if the fetched structure matches the expected structure
         for i, column in enumerate(result):
@@ -55,6 +58,7 @@ def test_comments_table_structure():
         print(f"Test Failed: {e}")
     finally:
         close_connection(conn)
+
 
 if __name__ == "__main__":
     test_comments_table_exists()
