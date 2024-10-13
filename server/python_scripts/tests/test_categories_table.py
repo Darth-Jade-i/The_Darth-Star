@@ -1,4 +1,3 @@
-from db_handler import create_connection, close_connection
 from mysql.connector import Error
 import mysql.connector
 import sys
@@ -7,7 +6,7 @@ import os
 # Add the directory containing db_handler.py to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Import the function to create a connection
+from db_handler import create_connection, close_connection
 
 
 def test_categories_table_exists():

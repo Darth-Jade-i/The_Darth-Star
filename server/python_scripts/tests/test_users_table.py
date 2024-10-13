@@ -1,4 +1,3 @@
-from db_handler import create_connection, close_connection
 import sys
 import os
 import mysql.connector
@@ -6,6 +5,8 @@ from mysql.connector import Error
 
 # Add the directory containing db_handler.py to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from db_handler import create_connection, close_connection
 
 
 def test_users_table_exists():
