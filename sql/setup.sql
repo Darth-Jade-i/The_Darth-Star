@@ -49,3 +49,13 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (blog_id) REFERENCES blogs(id), -- Link to the blog post
 FOREIGN KEY (user_id) REFERENCES users(id) -- Link to the user who commented
 );
+
+-- Create a table for e-commerce products
+CREATE TABLE products (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255) NOT NULL, -- Product name
+description TEXT, -- Description of the product
+price DECIMAL(10, 2) NOT NULL, -- Product price, e.g., 19.99
+stock INT DEFAULT 0, -- Stock quantity of the product
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
