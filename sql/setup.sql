@@ -1,5 +1,7 @@
+USE the_darth_star; -- Database to use
+
 -- Create a table to store user information
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
 id INT AUTO_INCREMENT PRIMARY KEY, -- A unique identifier for each user
 username VARCHAR(100) NOT NULL, -- User's name (required)
 password_hash VARCHAR(255) NOT NULL, -- Password stored as a hash for security
@@ -8,7 +10,7 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Timestamp of when the user was
 );
 
 -- Create a table to store blog posts
-CREATE TABLE blogs (
+CREATE TABLE IF NOT EXISTS blogs (
 id INT AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(255) NOT NULL, -- Title of the blog post
 content TEXT NOT NULL, -- Main content of the blog
@@ -18,7 +20,7 @@ FOREIGN KEY (author_id) REFERENCES users(id) -- Link the author to a user
 );
 
 -- Create a table for e-commerce products
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
 id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(255) NOT NULL, -- Product name
 description TEXT, -- Description of the product
@@ -28,7 +30,7 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create a table to store customer orders
-CREATE TABLE orders (
+CREATE TABLE IF NOT EXISTS orders (
 id INT AUTO_INCREMENT PRIMARY KEY,
 user_id INT, -- ID of the user placing the order
 product_id INT, -- ID of the product being purchased
@@ -40,7 +42,7 @@ FOREIGN KEY (product_id) REFERENCES products(id) -- Link to the product ordered
 );
 
 -- Create a table for comments on blog posts
-CREATE TABLE comments (
+CREATE TABLE IF NOT EXISTS comments (
 id INT AUTO_INCREMENT PRIMARY KEY,
 blog_id INT, -- ID of the blog post being commented on
 user_id INT, -- ID of the user who made the comment
@@ -51,11 +53,20 @@ FOREIGN KEY (user_id) REFERENCES users(id) -- Link to the user who commented
 );
 
 -- Create a table for e-commerce products
-CREATE TABLE products (
+CREATE TABLE IF NOT EXISTS products (
 id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(255) NOT NULL, -- Product name
 description TEXT, -- Description of the product
 price DECIMAL(10, 2) NOT NULL, -- Product price, e.g., 19.99
 stock INT DEFAULT 0, -- Stock quantity of the product
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS articles (
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255) NOT NULL, -- tITLE OF ARTICLE
+content TEXT NOT NULL,
+author VARCHAR(100) NOT NULL,
+created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

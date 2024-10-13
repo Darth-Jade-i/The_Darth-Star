@@ -6,6 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from db_handler import create_connection, close_connection
 
+
 def test_blogs_table_exists():
     conn = create_connection()
     assert conn is not None, "Connection to MySQL database failed."
@@ -13,10 +14,11 @@ def test_blogs_table_exists():
     cursor = conn.cursor()
     cursor.execute("SHOW TABLES LIKE 'blogs'")
     result = cursor.fetchone()
-    
+
     assert result is not None, "Test Failed: 'blogs' table doesn't exist"
 
     close_connection(conn)
+
 
 def test_blogs_table_structure():
     conn = create_connection()
@@ -31,15 +33,18 @@ def test_blogs_table_structure():
         ('title', 'varchar(255)', 'NO', '', None, ''),
         ('content', 'text', 'NO', '', None, ''),
         ('author_id', 'int', 'YES', 'MUL', None, ''),
-        ('created_at', 'timestamp', 'YES', '', 'CURRENT_TIMESTAMP', 'DEFAULT_GENERATED')
+        ('created_at', 'timestamp', 'YES', '',
+         'CURRENT_TIMESTAMP', 'DEFAULT_GENERATED')
     ]
 
     for i, column in enumerate(columns):
         assert column[:6] == expected_structure[i], (
-            f"Test Failed: Column {column[0]} does not match expected structure."
+            f"Test Failed: Column {
+                column[0]} does not match expected structure."
         )
 
     close_connection(conn)
+
 
 if __name__ == "__main__":
     test_blogs_table_exists()

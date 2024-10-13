@@ -1,10 +1,11 @@
-from db_handler import create_connection, close_connection
 import sys
 import os
 import mysql.connector
 from mysql.connector import Error
 # Add the parent directory to the Python path to access db_handler.py
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from db_handler import create_connection, close_connection
 
 
 def test_articles_table_exists():
@@ -19,7 +20,7 @@ def test_articles_table_exists():
         cursor.execute("USE the_darth_star;")
         cursor.execute("SHOW TABLES LIKE 'articles';")
         result = cursor.fetchone()
-        assert result is not None, "Test Failed: 'articles' table doesn't exist"
+        assert result is not None, "Test Failed: 'articles' table missing"
         print("Test Passed: 'articles' table exists")
     except Error as e:
         print(f"Test Failed: {e}")
@@ -54,15 +55,14 @@ def test_articles_table_structure():
             ('updated_at', 'datetime', 'YES', '', 'CURRENT_TIMESTAMP',
              'DEFAULT_GENERATED on update CURRENT_TIMESTAMP')
         ]
+
         # Check if the fetched structure matches the expected structure
         for i, column in enumerate(result):
             assert column[:6] == expected_structure[i], (
                 f"Test Failed: Column {
-                    column[0]} does not match the expected structure."
+                column[0]} does not match expected structure."
             )
-            print("Test Passed: 'articles' table structure is correct.")
-    except Error as e:
-        print(f"Test Failed: {e}")
+
     finally:
         close_connection(conn)
 
