@@ -5,7 +5,7 @@ import unittest
 # Add the directory containing db_handler.py to the Python path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from users import create_user, read_user, update_user, delete_user
+from routes.users import create_user, read_user, update_user, delete_user
 from db_handler import create_connection, close_connection
 
 class TestUsersCRUD(unittest.TestCase):

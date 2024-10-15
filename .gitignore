@@ -3,3 +3,7 @@ __pycache__/
 *.o
 ~
 venv/
+*.out
+*.pyc
+*.log
+.DS_Store

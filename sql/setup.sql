@@ -19,6 +19,13 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (author_id) REFERENCES users(id) -- Link the author to a user
 );
 
+-- Create a table that stores product categories
+CREATE TABLE IF NOT EXISTS categories (
+    id INT PRIMARY KEY AUTO_INCREMENT, 
+    name VARCHAR(100) NOT NULL, -- Category type
+    description TEXT -- Short description of cartegory
+);
+
 -- Create a table for e-commerce products
 CREATE TABLE IF NOT EXISTS products (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,13 +39,14 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 -- Create a table to store customer orders
 CREATE TABLE IF NOT EXISTS orders (
 id INT AUTO_INCREMENT PRIMARY KEY,
-user_id INT, -- ID of the user placing the order
-product_id INT, -- ID of the product being purchased
-quantity INT DEFAULT 1, -- Number of units ordered
-total_price DECIMAL(10, 2) NOT NULL, -- Total price of the order
+user_id INT,
+product_id INT,
+quantity INT DEFAULT 1,
+total_price DECIMAL(10, 2) NOT NULL,
+status VARCHAR(50) DEFAULT 'pending', -- New status column
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-FOREIGN KEY (user_id) REFERENCES users(id), -- Link to the user who placed the order
-FOREIGN KEY (product_id) REFERENCES products(id) -- Link to the product ordered
+FOREIGN KEY (user_id) REFERENCES users(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
 -- Create a table for comments on blog posts
