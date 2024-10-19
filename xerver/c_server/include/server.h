@@ -1,5 +1,5 @@
-#ifndef SERVER_H
-#define SERVER_H
+#ifndef XERVER_H
+#define XERVER_H
 
 #include <arpa/inet.h>
 #include <ctype.h>
