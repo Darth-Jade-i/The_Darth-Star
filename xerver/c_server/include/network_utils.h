@@ -3,4 +3,4 @@
 
 int setup_server_socket(int port);
 
-#endif
+#endif /* NETWORK_UTILS_H */
