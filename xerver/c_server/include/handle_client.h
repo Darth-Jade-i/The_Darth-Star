@@ -3,4 +3,4 @@
 
 void *handle_client(void *arg);
 
-#endif
+#endif /* HANDLE_CLIENT_H */
