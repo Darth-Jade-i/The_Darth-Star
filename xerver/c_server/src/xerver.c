@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-    run_server();
-    return (0);
+	run_server();
+	return (0);
 }
