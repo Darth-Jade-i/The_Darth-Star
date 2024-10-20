@@ -5,6 +5,7 @@
 #include <arpa/inet.h>
 #include <ctype.h>
 #include <fcntl.h>
+#include <netinet/in.h>
 #include <pthread.h>
 #include <stddef.h>
 #include <stdio.h>
