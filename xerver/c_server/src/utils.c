@@ -19,8 +19,8 @@ char *url_decode(const char *src)
 			int hex_val;
 
 			/*
-			 * Added a check for the return value of sscanf
-			 * to ensure it successfully reads a hexadecimal value.
+			 * Check for the return value of sscanf
+			 * Ensures it reads a hexadecimal value.
 			 * If it fails, it appends a % instead.
 			 */
 			if (sscanf(src + i + 1, "%2x", &hex_val) == 1)
@@ -28,18 +28,15 @@ char *url_decode(const char *src)
 				decoded[decoded_len++] = hex_val;
 				i += 2;
 			}
-
 			else
 			{
 				decoded[decoded_len++] = '%';
 			}
 		}
-
 		else if (src[i] == '+')
 		{
 			decoded[decoded_len++] = ' ';
 		}
-
 		else
 		{
 			decoded[decoded_len++] = src[i];
@@ -47,7 +44,6 @@ char *url_decode(const char *src)
 	}
 
 	decoded[decoded_len] = '\0';
-
 	return (decoded);
 }
 
