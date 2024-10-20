@@ -40,6 +40,7 @@ static void set_response_content(http_response_t *response,
  * This function handles GET requests and retrieves the requested file.
  * It sets the response status and content
  * based on the request and file existence.
+ * TO DO: Lines in this function is over 40
  */
 void generate_response(const http_request_t *request,
 		       http_response_t *response)
