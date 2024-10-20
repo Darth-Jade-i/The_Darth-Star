@@ -10,6 +10,7 @@ void *handle_client(void *arg)
 {
 	client_args_t *args = (client_args_t *)arg;
 	int client_fd = args->client_fd;
+
 	free(args);
 
 	http_request_t request;
@@ -29,5 +30,5 @@ void *handle_client(void *arg)
 	free(response.body);
 	close(client_fd);
 
-	return NULL;
+	return (NULL);
 }
