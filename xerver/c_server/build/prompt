@@ -1,0 +1,43 @@
+Write a prompt to create a landing page.
+
+
+
+The landing page will be made with html, css, and javascript.
+
+In the header there will be an icon for logo to the far left
+
+Also in the header there will be a nav for home, blog, portfolio, shop, about, login, and sign up.These will be on the right of the header
+
+There should be a carousel with five slides
+
+All Five slides will have photos
+
+The first slide will have an introductory text that will say "I am Xerver. " "WELCOME" "to"  "The Darth Star."
+
+The second slide will have the text "Daily Darth Star" "blog"
+
+The third slide will have the text "Shop"
+
+The fourth will have the text "See What I am Up to". It will have a button that will say see my portfolio.
+
+The fifth will say "Join My Elite Fleet" with a button that says "sign up"
+
+There will be five sections in the body of the file
+
+The first section will be an introduction that will talk about Xerver which is a web server made with c programming language. There will be a button that will link to the source code of the server in GitHub
+
+The second section will be about the Daily Darth Star blog. It is an intergalactic blog about every tech in the Universe. There will be a button that will say "Read More" which will lead to the blog pages
+
+The third section  will be about my portfolio website. It will say see what i am building there be a button to link to an external portfolio website.
+
+The third section Will talk about the merch i have to offer. Customised caps, hoodies, tshirts, and wallpapers. There will be a button that says "Shop"
+
+The fourth will be an about section that will have two photos and some text to talk about the owner of the page.
+
+The fifth section will just say "Come To this side of the Galaxy"
+
+There will be a sign up button
+
+In the fooetr there will be links to twitter, github, linkedin, medium, and circle. there will be a copywrit logo for Xerver and text that says made with Alien Inteligence.
+
+Use easy reading text fonts like sanserifs. The whole landing page should have a Star wars like theme. the photos must be akin to life in a galactic enviroment and some as if the universe is being viewed from within a space craft. Use colors that will accentuate this theme for buttons and other page elements 

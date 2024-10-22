@@ -10,6 +10,7 @@
 
 /* C Header Files */
 #include <arpa/inet.h>
+#include <check.h>
 #include <ctype.h>
 #include <fcntl.h>
 #include <netinet/in.h>
