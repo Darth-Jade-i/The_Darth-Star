@@ -7,27 +7,59 @@
     --rebel-red: #FF4F00;
 }
 
+/* Hide scrollbar by default but show on hover */
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--space-black);
     color: #fff;
     margin: 0;
     padding: 0;
+    overflow-y: overlay; /* This makes the scrollbar overlay the content */
 }
+
+/* Webkit scrollbar styles */
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+body:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Firefox scrollbar styles */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
 
 /* Header Styles */
 header {
-    background-color: rgba(28, 35, 49, 0.8);
+    background-color: rgba(28, 35, 49, 0.95);
     padding: 1rem;
     position: fixed;
     width: 100%;
     z-index: 1000;
+    /* Ensure header spans full width and accounts for scrollbar */
+   left: 0;
+    right: 0;
+    /* Add subtle shadow for better separation */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: calc(100% - 20px); /* Account for scrollbar width */
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 .logo img {
@@ -37,6 +69,8 @@ nav {
 nav ul {
     display: flex;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -48,16 +82,22 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
 }
 
 nav ul li a:hover {
     color: var(--star-yellow);
 }
 
+/* Adjust main content to account for fixed header */
+main {
+    padding-top: 70px; /* Adjust this value based on your header height */
+}
+
 /* Carousel Styles */
 #carousel {
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 70px); /* Adjust for header height */
     overflow: hidden;
 }
 
