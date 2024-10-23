@@ -28,3 +28,12 @@ $COMPILER -o "$BUILD_DIR/xerver" "$BUILD_DIR"/*.o
 
 # Print success message
 echo "Compiled successfully. Executable: $BUILD_DIR/xerver"
+echo
+
+# Delete all object files
+rm *.o
+
+echo "Starting Xerver..."
+
+# Starting Xerver
+./build/xerver
