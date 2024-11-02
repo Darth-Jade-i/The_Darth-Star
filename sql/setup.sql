@@ -21,9 +21,9 @@ FOREIGN KEY (author_id) REFERENCES users(id) -- Link the author to a user
 
 -- Create a table that stores product categories
 CREATE TABLE IF NOT EXISTS categories (
-    id INT PRIMARY KEY AUTO_INCREMENT, 
-    name VARCHAR(100) NOT NULL, -- Category type
-    description TEXT -- Short description of cartegory
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(100) NOT NULL, -- Category type
+description TEXT -- Short description of cartegory
 );
 
 -- Create a table for e-commerce products
